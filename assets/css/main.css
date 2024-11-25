@@ -4,7 +4,7 @@
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Raleway",  sans-serif;
   --nav-font: "Poppins",  sans-serif;
-  font-size: 1em;
+  font-size: 1.2em;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
@@ -133,7 +133,7 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  font-size: 1.5em;
+  font-size: 2em;
   color: var(--default-color);
   background-color: var(--background-color);
   position: fixed;
@@ -151,7 +151,7 @@ h6 {
 .header .profile-img img {
   margin: 15px auto;
   display: block;
-  width: 140px;
+  width: 180px;
   border: 4px solid color-mix(in srgb, var(--default-color), transparent 85%);
 }
 
@@ -812,75 +812,51 @@ section,
   }
 }
 
-.portfolio .portfolio-content {
-  position: relative;
-  overflow: hidden;
-}
-
-.portfolio .portfolio-content img {
-  transition: 0.3s;
-}
-
-.portfolio .portfolio-content .portfolio-info {
-  opacity: 0;
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  transition: all ease-in-out 0.3s;
-  background: rgba(0, 0, 0, 0.6);
+/* Set a uniform height for portfolio cards */
+.portfolio-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 15px;
-}
-
-.portfolio .portfolio-content .portfolio-info h4 {
-  font-size: 14px;
-  padding: 5px 10px;
-  font-weight: 400;
-  color: #ffffff;
-  display: inline-block;
-  background-color: var(--accent-color);
-}
-
-.portfolio .portfolio-content .portfolio-info p {
-  position: absolute;
-  bottom: 10px;
+  height: 400px; /* Set a fixed height for all cards */
+  overflow: hidden; /* Prevent overflow of content */
   text-align: center;
-  display: inline-block;
-  left: 0;
-  right: 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
 }
 
-.portfolio .portfolio-content .portfolio-info .preview-link,
-.portfolio .portfolio-content .portfolio-info .details-link {
-  position: absolute;
-  left: calc(50% - 40px);
-  font-size: 26px;
-  top: calc(50% - 14px);
-  color: #fff;
-  transition: 0.3s;
+/* Uniform image size */
+.portfolio-content img {
+  width: 100%;
+  height: 150px; /* Fixed height for images */
+  object-fit: cover; /* Crop image to maintain aspect ratio */
+  border-bottom: 1px solid #ddd;
+}
+
+/* Title and description spacing */
+.portfolio-title-description h4 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #333;
   line-height: 1.2;
 }
 
-.portfolio .portfolio-content .portfolio-info .preview-link:hover,
-.portfolio .portfolio-content .portfolio-info .details-link:hover {
-  color: var(--accent-color);
+.portfolio-title-description h4 a {
+  color: #333; /* Default title color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease;
 }
 
-.portfolio .portfolio-content .portfolio-info .details-link {
-  left: 50%;
-  font-size: 34px;
-  line-height: 0;
+.portfolio-title-description h4 a:hover {
+  color: #007bff; /* Highlight color on hover */
+  transform: scale(1.2);
 }
 
-.portfolio .portfolio-content:hover .portfolio-info {
-  opacity: 1;
-}
 
-.portfolio .portfolio-content:hover img {
-  transform: scale(1.1);
-}
 
 /*--------------------------------------------------------------
 # Services Section
@@ -1193,6 +1169,25 @@ section,
   padding: 0;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
 }
+
+.portfolio-title-description {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.portfolio-title-description h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.portfolio-title-description p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 10px; /* Add padding for better readability */
+}
+
 
 /*--------------------------------------------------------------
 # Service Details Section
